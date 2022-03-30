@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
 
-const App = () => {
-  const [count, setCount] = useState(0)
+function App() {
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
       <header className="App-header">
         <p className="text-3xl font-bold underline">Hello World!</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
+          <button
+            type="button"
+            onClick={() => setCount((currentCount) => currentCount + 1)}
+          >
             count is: {count}
           </button>
         </p>
@@ -26,7 +28,7 @@ const App = () => {
         </p>
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
