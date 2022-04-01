@@ -1,32 +1,42 @@
 import React, { useState } from 'react';
-import './App.css';
+import AddProductDialog from './components/add-product-dialog.component';
+import { Product } from './types';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
+
+  const onAddProduct = (product: Product) => {
+    setSelectedProducts([...selectedProducts, product]);
+  };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p className="text-3xl font-bold underline">Hello World!</p>
-        <p>
-          <button
-            type="button"
-            onClick={() => setCount((currentCount) => currentCount + 1)}
-          >
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
+    <div className="min-h-screen bg-indigo-100 p-4">
+      <header>
+        <p className="text-center text-3xl font-bold">Sales Taxes Calculator</p>
+        <p className="text-center text-l font-medium">
+          DealerOn Development Candidate Code Test
         </p>
       </header>
+      <hr />
+      <div className="mt-2">
+        <AddProductDialog onAddProductHandler={onAddProduct} />
+      </div>
+      <div>
+        {selectedProducts.length ? (
+          <div>
+            <h2 className="text-center text-2xl font-bold">
+              Selected Products
+            </h2>
+            <ul>
+              {selectedProducts.map((product) => (
+                <li key={product.id}>
+                  {product.name} - {product.quantity}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }
