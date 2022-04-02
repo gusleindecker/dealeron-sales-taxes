@@ -22,6 +22,7 @@ export default function AddProductDialog({
   const closeModal = useCallback(() => {
     setIsOpen(false);
     setSelectedProduct(null);
+    setProductQuantity(1);
   }, [setIsOpen]);
 
   const addProduct = () => {
@@ -33,16 +34,13 @@ export default function AddProductDialog({
     closeModal();
   };
 
-  // eslint-disable-next-line no-console
-  console.log('selectedProduct:', selectedProduct);
-
   return (
     <>
       <div className="flex">
         <button
           type="button"
           onClick={openModal}
-          className="bg-indigo-500 text-white font-bold py-2 px-4 rounded-md flex items-center"
+          className="bg-indigo-500 text-white font-bold py-2 px-4 rounded-md flex items-center w-full"
         >
           Add Product
           <PlusCircleIcon className="ml-3 h-5 w-5" />
@@ -67,14 +65,6 @@ export default function AddProductDialog({
             >
               <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
             </Transition.Child>
-
-            {/* This element is to trick the browser into centering the modal contents. */}
-            <span
-              className="inline-block h-screen align-middle"
-              aria-hidden="true"
-            >
-              &#8203;
-            </span>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -84,7 +74,7 @@ export default function AddProductDialog({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-md p-6 my-8 text-left transition-all transform bg-white shadow-xl rounded-2xl">
                 <div className="mt-2">
                   <ProductListbox
                     selectedProduct={selectedProduct}
@@ -92,13 +82,11 @@ export default function AddProductDialog({
                   />
                   <div className="mt-4">
                     {selectedProduct ? (
-                      <div className="border rounded-md px-4 py-4">
-                        <label
-                          htmlFor="product-name"
-                          className="font-bold mr-1"
-                        >
+                      <div className="flex flex-col border rounded-md px-4 py-4">
+                        <label htmlFor="product-name" className="font-bold">
                           Product Name:
                           <input
+                            className="border-gray-300 rounded-md shadow-sm read-only:border-none read-only:shadow-none ml-1 mt-2 text-sm read-only:focus:ring-0 min-w-xs"
                             type="text"
                             name="product-name"
                             id="product-name"
@@ -106,12 +94,10 @@ export default function AddProductDialog({
                             readOnly
                           />
                         </label>
-                        <label
-                          htmlFor="product-price"
-                          className="font-bold mr-1"
-                        >
+                        <label htmlFor="product-price" className="font-bold">
                           Product Price:
                           <input
+                            className="border-gray-300 rounded-md shadow-sm read-only:border-none ml-1 mt-2"
                             type="text"
                             name="product-price"
                             id="product-price"
@@ -119,12 +105,10 @@ export default function AddProductDialog({
                             readOnly
                           />
                         </label>
-                        <label
-                          htmlFor="product-quantity"
-                          className="font-bold mr-1"
-                        >
-                          Quantity
+                        <label htmlFor="product-quantity" className="font-bold">
+                          Quantity:
                           <input
+                            className="border-gray-300 rounded-md shadow-sm read-only:border-none ml-1 mt-2"
                             type="number"
                             name="product-quantity"
                             id="product-quantity"

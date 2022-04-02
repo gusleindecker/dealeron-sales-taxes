@@ -4,4 +4,5 @@ export interface Product {
   isImported: boolean;
   price: number;
   quantity?: number;
+  category: string;
 }
