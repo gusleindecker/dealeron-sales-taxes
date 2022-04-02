@@ -86,7 +86,7 @@ export default function AddProductDialog({
                         <label htmlFor="product-name" className="font-bold">
                           Product Name:
                           <input
-                            className="border-gray-300 rounded-md shadow-sm read-only:border-none read-only:shadow-none ml-1 mt-2 text-sm read-only:focus:ring-0 min-w-xs"
+                            className="border-gray-300 rounded-md shadow-sm read-only:border-none read-only:shadow-none ml-1 mt-2 text-sm read-only:focus:ring-0 w-60"
                             type="text"
                             name="product-name"
                             id="product-name"
@@ -97,11 +97,11 @@ export default function AddProductDialog({
                         <label htmlFor="product-price" className="font-bold">
                           Product Price:
                           <input
-                            className="border-gray-300 rounded-md shadow-sm read-only:border-none ml-1 mt-2"
+                            className="border-gray-300 rounded-md shadow-sm read-only:border-none read-only:shadow-none ml-1 mt-2 text-sm read-only:focus:ring-0 w-60"
                             type="text"
                             name="product-price"
                             id="product-price"
-                            value={selectedProduct.price}
+                            value={`$${selectedProduct.price.toFixed(2)}`}
                             readOnly
                           />
                         </label>

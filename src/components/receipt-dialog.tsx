@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useCallback, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import { ReceiptTaxIcon } from '@heroicons/react/solid';
 import { Product } from '../types';
 
 interface ReceiptDialogProps {
@@ -86,16 +87,19 @@ export default function ReceiptDialog({
         ).toFixed(2)} ${quantityTimesPrice}`;
       })
       .join('\r\n');
+
     const receiptSalesTaxes = `Sales Taxes: ${calculatedProducts
       .reduce((acc, currentProduct) => {
         return acc + currentProduct.totalTaxes * currentProduct.quantity;
       }, 0)
       .toFixed(2)}\r\n`;
+
     const receiptTotal = `Total: ${calculatedProducts
       .reduce((acc, currentProduct) => {
         return acc + currentProduct.totalPrice * currentProduct.quantity;
       }, 0)
       .toFixed(2)}\r\n`;
+
     const newReceipt = `${receiptProducts}\r\n${receiptSalesTaxes}${receiptTotal}`;
 
     setReceipt(newReceipt);
@@ -107,9 +111,11 @@ export default function ReceiptDialog({
         <button
           type="button"
           onClick={openModal}
-          className="bg-emerald-500 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+          className="bg-emerald-600 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+          disabled={selectedProducts.length === 0}
         >
-          Generate receipt
+          Generate Receipt
+          <ReceiptTaxIcon className="ml-3 h-5 w-5" />
         </button>
       </div>
       <Transition appear show={isOpen} as={Fragment}>
@@ -165,7 +171,7 @@ export default function ReceiptDialog({
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                     onClick={closeModal}
                   >
-                    Got it, thanks!
+                    Close
                   </button>
                 </div>
               </div>

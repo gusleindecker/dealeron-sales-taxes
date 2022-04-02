@@ -2,66 +2,7 @@ import React, { Fragment /* , useState */ } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import { Product } from '../types';
-
-const productList: Product[] = [
-  { id: '1', name: 'Book', isImported: false, price: 12.49, category: 'books' },
-  {
-    id: '2',
-    name: 'Music CD',
-    isImported: false,
-    price: 14.99,
-    category: 'music',
-  },
-  {
-    id: '3',
-    name: 'Chocolate bar',
-    isImported: false,
-    price: 0.85,
-    category: 'food',
-  },
-  {
-    id: '4',
-    name: 'Imported box of chocolates',
-    isImported: true,
-    price: 10.0,
-    category: 'food',
-  },
-  {
-    id: '5',
-    name: 'Imported bottle of perfume',
-    isImported: true,
-    price: 47.5,
-    category: 'hygiene and beauty',
-  },
-  {
-    id: '6',
-    name: 'Bottle of perfume',
-    isImported: false,
-    price: 18.99,
-    category: 'hygiene and beauty',
-  },
-  {
-    id: '7',
-    name: 'Packet of headache pills',
-    isImported: false,
-    price: 9.75,
-    category: 'medical',
-  },
-  {
-    id: '8',
-    name: 'Imported box of chocolates',
-    isImported: true,
-    price: 11.25,
-    category: 'food',
-  },
-  {
-    id: '9',
-    name: 'Imported bottle of perfume',
-    isImported: true,
-    price: 27.99,
-    category: 'hygiene and beauty',
-  },
-];
+import { productList } from '../mocks';
 
 interface ProductListboxProps {
   selectedProduct: Product | null;

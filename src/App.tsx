@@ -3,6 +3,7 @@ import { TrashIcon } from '@heroicons/react/solid';
 import AddProductDialog from './components/add-product-dialog.component';
 import ReceiptDialog from './components/receipt-dialog';
 import { Product } from './types';
+import { input1, input2, input3 } from './mocks';
 
 function App() {
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
@@ -14,6 +15,18 @@ function App() {
 
   const onRemoveAllProducts = () => {
     setSelectedProducts([]);
+  };
+
+  const setInput1 = () => {
+    setSelectedProducts(input1);
+  };
+
+  const setInput2 = () => {
+    setSelectedProducts(input2);
+  };
+
+  const setInput3 = () => {
+    setSelectedProducts(input3);
   };
 
   useEffect(() => {
@@ -29,23 +42,25 @@ function App() {
   return (
     <div className="min-h-screen bg-indigo-100 p-4">
       <header>
-        <p className="text-center text-3xl font-bold">Sales Taxes Calculator</p>
-        <p className="text-center text-l font-medium">
+        <p className="text-center text-3xl font-bold text-indigo-900">
+          Sales Taxes Calculator
+        </p>
+        <p className="text-center text-l font-medium text-indigo-700">
           DealerOn Development Candidate Code Test
         </p>
       </header>
       <div className="flex justify-center">
         <label
           htmlFor="shopping-basket-input"
-          className="flex flex-col font-semibold mt-4 mr-4"
+          className="flex flex-col font-semibold mt-4 mr-4 text-indigo-900"
         >
           Added Products (Input)
           <textarea
             className="mt-1 w-full border-gray-300 rounded-md shadow-sm"
             name="shopping-basket-input"
             id="shopping-basket-input"
-            cols={30}
-            rows={10}
+            cols={32}
+            rows={11}
             value={shoppingBasketInput}
             readOnly
             placeholder="No products added."
@@ -55,8 +70,30 @@ function App() {
           <AddProductDialog onAddProductHandler={onAddProduct} />
           <button
             type="button"
-            className="bg-indigo-500 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+            className="bg-indigo-400 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+            onClick={setInput1}
+          >
+            Add Input 1
+          </button>
+          <button
+            type="button"
+            className="bg-indigo-400 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+            onClick={setInput2}
+          >
+            Add Input 2
+          </button>
+          <button
+            type="button"
+            className="bg-indigo-400 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+            onClick={setInput3}
+          >
+            Add Input 3
+          </button>
+          <button
+            type="button"
+            className="bg-pink-500 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
             onClick={onRemoveAllProducts}
+            disabled={selectedProducts.length === 0}
           >
             Remove Products
             <TrashIcon className="ml-3 h-5 w-5" />
