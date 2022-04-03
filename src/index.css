@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply border-gray-300 rounded-md shadow-sm read-only:border-none read-only:shadow-none ml-1 mt-2 text-sm read-only:focus:ring-0
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

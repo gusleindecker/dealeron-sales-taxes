@@ -56,11 +56,11 @@ function App() {
         >
           Added Products (Input)
           <textarea
-            className="mt-1 w-full border-gray-300 rounded-md shadow-sm"
+            className="mt-1 ml-0 w-full"
             name="shopping-basket-input"
             id="shopping-basket-input"
-            cols={32}
-            rows={11}
+            cols={35}
+            rows={14}
             value={shoppingBasketInput}
             readOnly
             placeholder="No products added."
@@ -70,28 +70,28 @@ function App() {
           <AddProductDialog onAddProductHandler={onAddProduct} />
           <button
             type="button"
-            className="bg-indigo-400 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+            className="bg-indigo-400 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full hover:bg-indigo-600 transition-colors duration-200 disabled:bg-slate-300 disabled:cursor-not-allowed disabled:hover:bg-slate-300"
             onClick={setInput1}
           >
             Add Input 1
           </button>
           <button
             type="button"
-            className="bg-indigo-400 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+            className="bg-indigo-400 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full hover:bg-indigo-600 transition-colors duration-200 disabled:bg-slate-300 disabled:cursor-not-allowed disabled:hover:bg-slate-300"
             onClick={setInput2}
           >
             Add Input 2
           </button>
           <button
             type="button"
-            className="bg-indigo-400 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+            className="bg-indigo-400 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full hover:bg-indigo-600 transition-colors duration-200 disabled:bg-slate-300 disabled:cursor-not-allowed disabled:hover:bg-slate-300"
             onClick={setInput3}
           >
             Add Input 3
           </button>
           <button
             type="button"
-            className="bg-pink-500 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+            className="bg-pink-500 text-white font-bold py-2 px-4 rounded-md flex items-center mt-6 w-full hover:bg-pink-700 transition-colors duration-200 disabled:bg-slate-300 disabled:cursor-not-allowed disabled:hover:bg-slate-300"
             onClick={onRemoveAllProducts}
             disabled={selectedProducts.length === 0}
           >

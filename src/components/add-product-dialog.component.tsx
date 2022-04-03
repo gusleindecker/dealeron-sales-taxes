@@ -40,7 +40,7 @@ export default function AddProductDialog({
         <button
           type="button"
           onClick={openModal}
-          className="bg-indigo-500 text-white font-bold py-2 px-4 rounded-md flex items-center w-full"
+          className="bg-indigo-500 text-white font-bold py-2 px-4 rounded-md flex items-center w-full hover:bg-indigo-700 transition-colors duration-200 disabled:bg-slate-300 disabled:cursor-not-allowed disabled:hover:bg-slate-300"
         >
           Add Product
           <PlusCircleIcon className="ml-3 h-5 w-5" />
@@ -86,7 +86,7 @@ export default function AddProductDialog({
                         <label htmlFor="product-name" className="font-bold">
                           Product Name:
                           <input
-                            className="border-gray-300 rounded-md shadow-sm read-only:border-none read-only:shadow-none ml-1 mt-2 text-sm read-only:focus:ring-0 w-60"
+                            className="w-60"
                             type="text"
                             name="product-name"
                             id="product-name"
@@ -97,7 +97,7 @@ export default function AddProductDialog({
                         <label htmlFor="product-price" className="font-bold">
                           Product Price:
                           <input
-                            className="border-gray-300 rounded-md shadow-sm read-only:border-none read-only:shadow-none ml-1 mt-2 text-sm read-only:focus:ring-0 w-60"
+                            className="w-60"
                             type="text"
                             name="product-price"
                             id="product-price"
@@ -108,7 +108,6 @@ export default function AddProductDialog({
                         <label htmlFor="product-quantity" className="font-bold">
                           Quantity:
                           <input
-                            className="border-gray-300 rounded-md shadow-sm read-only:border-none ml-1 mt-2"
                             type="number"
                             name="product-quantity"
                             id="product-quantity"
@@ -126,7 +125,7 @@ export default function AddProductDialog({
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="inline-flex bg-indigo-500 text-white font-bold py-2 px-4 rounded-md items-center hover:bg-indigo-700 transition-colors duration-200 disabled:bg-slate-300 disabled:cursor-not-allowed disabled:hover:bg-slate-300"
                     onClick={addProduct}
                     disabled={!selectedProduct}
                   >
@@ -134,7 +133,7 @@ export default function AddProductDialog({
                   </button>
                   <button
                     type="button"
-                    className="ml-4 inline-flex justify-center px-4 py-2 text-sm font-medium text-pink-700 bg-pink-200 border border-transparent rounded-md hover:bg-pink-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pink-500"
+                    className="ml-4 inline-flex bg-pink-500 text-white font-bold py-2 px-4 rounded-md items-center mt-2 hover:bg-pink-700 transition-colors duration-200 disabled:bg-slate-300 disabled:cursor-not-allowed disabled:hover:bg-slate-300"
                     onClick={closeModal}
                   >
                     Cancel

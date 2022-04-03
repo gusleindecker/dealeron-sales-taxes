@@ -111,7 +111,7 @@ export default function ReceiptDialog({
         <button
           type="button"
           onClick={openModal}
-          className="bg-emerald-600 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full"
+          className="bg-emerald-600 text-white font-bold py-2 px-4 rounded-md flex items-center mt-2 w-full hover:bg-emerald-800 transition-colors duration-200 disabled:bg-slate-300 disabled:cursor-not-allowed disabled:hover:bg-slate-300"
           disabled={selectedProducts.length === 0}
         >
           Generate Receipt
@@ -154,7 +154,7 @@ export default function ReceiptDialog({
                 </Dialog.Title>
                 <div className="mt-2">
                   <textarea
-                    className="mt-1 w-full border-gray-300 rounded-md shadow-sm bg-orange-100 text-neutral-900 read-only:border-orange-300 focus:border-orange-300 ring-0 focus:ring-0"
+                    className="mt-1 w-full bg-orange-100 text-neutral-900 read-only:border-orange-300 focus:border-orange-300 ring-0 focus:ring-0"
                     name="shopping-basket-input"
                     id="shopping-basket-input"
                     cols={30}
